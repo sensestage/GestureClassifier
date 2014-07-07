@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GestureClassifier" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/GestureClassifier" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add directory="../../../Desktop/liblo-0.28" />
+					<Add directory="../../NetBeansProjects/GestureClassification" />
+					<Add directory="../../NetBeansProjects/lbimproved" />
+					<Add directory="../../NetBeansProjects/YIN" />
+					<Add directory="../../NetBeansProjects/utils" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../../NetBeansProjects/GestureClassification" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="..\..\..\Desktop\liblo-0.28\src\.libs\liblo.a" />
+					<Add directory="../../../Desktop/liblo-0.28" />
+					<Add directory="../../NetBeansProjects/GestureClassification" />
+					<Add directory="../../NetBeansProjects/lbimproved" />
+					<Add directory="../../NetBeansProjects/YIN" />
+					<Add directory="../../NetBeansProjects/utils" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/GestureClassifier" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+					<Add directory="../../../Desktop/liblo-0.28" />
+					<Add directory="../../NetBeansProjects/GestureClassification" />
+					<Add directory="../../NetBeansProjects/lbimproved" />
+					<Add directory="../../NetBeansProjects/YIN" />
+					<Add directory="../../NetBeansProjects/utils" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="../../NetBeansProjects/GestureClassification" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="..\..\..\Desktop\liblo-0.28\src\.libs\liblo.a" />
+					<Add directory="../../../Desktop/liblo-0.28" />
+					<Add directory="../../NetBeansProjects/GestureClassification" />
+					<Add directory="../../NetBeansProjects/lbimproved" />
+					<Add directory="../../NetBeansProjects/YIN" />
+					<Add directory="../../NetBeansProjects/utils" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="C:\Users\Bas\Desktop\liblo-0.28\lo" />
+			</code_completion>
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
