@@ -41,9 +41,9 @@ void data_handler(const char *path, const char *types, lo_arg **argv, int argc)
     }
     busy = true;
     rc->infer(vec);
-    int g = rc->mostLikeliGesture();
+    int g = rc->mostLikelyGesture();
     if (g>=0)
-        a->send("/RepClassifier/mostLikeliGesture","i",rc->mostLikeliGesture());
+        a->send("/RepClassifier/mostLikelyGesture","i",rc->mostLikelyGesture());
     a->send(lo::Bundle(
     {
         {"/RepClassifier/distance", lo::Message("f",rc->getDistance())},

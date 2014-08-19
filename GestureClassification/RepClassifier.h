@@ -34,7 +34,7 @@ public:
     void fillTemplate(int, std::vector<float>&);
     void clearTemplate(int);
     void clear();
-    int mostLikeliGesture();
+    int mostLikelyGesture();
     double getPhase();
     int templateSize(int i);
     int size();

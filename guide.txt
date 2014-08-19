@@ -1,0 +1,8 @@
+lbimproved -> dynamic time warping library
+YIN -> 3D pitch detection
+GestureClassification -> library
+
+
+-- YIN -> utils.cpp, utils.h - just include... enough?
+
+

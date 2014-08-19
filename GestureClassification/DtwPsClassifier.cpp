@@ -86,7 +86,7 @@ void DtwPsClassifier::clear() {
     maxBufferSize = 1;
 }
 
-int DtwPsClassifier::mostLikeliGesture() {
+int DtwPsClassifier::mostLikelyGesture() {
     return mostLikeliGest;
 }
 

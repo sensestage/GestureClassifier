@@ -11,7 +11,7 @@
 #include "Template.h"
 #include "AbstractGestureClassifier.h"
 
-#include "VectorDTW.h"
+#include "vectordtw.h"
 #include <deque>
 #include <float.h>
 
@@ -36,7 +36,7 @@ public:
     void fillTemplate(int, std::vector<float>&);
     void clearTemplate(int);
     void clear();
-    int mostLikeliGesture();
+    int mostLikelyGesture();
     double getPhase();
     int templateSize(int i);
     int size();

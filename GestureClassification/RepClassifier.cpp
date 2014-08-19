@@ -11,7 +11,7 @@
 #include "YIN.h"
 #include "YIN.cpp"
 
-#include <Float.h>
+#include <float.h>
 
 RepClassifier::RepClassifier()
 {
@@ -89,10 +89,10 @@ void RepClassifier::clear()
     yin->clear();
 }
 
-int RepClassifier::mostLikeliGesture()
+int RepClassifier::mostLikelyGesture()
 {
     if (dtw->getDistance() < recognitionThreshold || yin->isSync())
-        return dtw->mostLikeliGesture();
+        return dtw->mostLikelyGesture();
     else
         return -1;
 }
