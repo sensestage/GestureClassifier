@@ -90,7 +90,8 @@ void RepClassifier::clear()
 
 int RepClassifier::mostLikelyGesture()
 {
-    if (dtw->getDistance() < recognitionThreshold && yin->isSync())
+//    if (dtw->getDistance() < recognitionThreshold && yin->isSync())
+    if (yin->isSync())
         return dtw->mostLikelyGesture();
     else
         return -1;
@@ -154,7 +155,13 @@ int RepClassifier::repetitionInterval()
         return -1;
 }
 
-    void RepClassifier::stopLearning(){
-        learning = false;
-        stayLearning = false;
-    }
+void RepClassifier::stopLearning()
+{
+    learning = false;
+    stayLearning = false;
+}
+
+void RepClassifier::setResolution(int r)
+{
+    dtw->setResolution(r);
+}

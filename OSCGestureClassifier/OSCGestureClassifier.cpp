@@ -12,33 +12,25 @@
 
 using namespace std;
 
-bool busy = false;
+// Parameter
+double scale = 100.;
 
+// State variables
+bool busy = false;
 int wasLearning = -1;
 bool wasSync = false;
 bool wasDetected = false;
 
+// Objects
 RepClassifier* rc;
 lo::Address* a;
-
-void wait_a_bit()
-{
-#ifdef WIN32
-    Sleep(10);
-#else
-    usleep(10*1000);
-#endif
-}
 
 void data_handler(const char *path, const char *types, lo_arg **argv, int argc)
 {
     std::vector<float> vec;
-    vec.push_back(argv[0]->f);
-    vec.push_back(argv[1]->f);
-    vec.push_back(argv[2]->f);
-
-    while(busy)
-        wait_a_bit();
+    vec.push_back(argv[0]->f * scale);
+    vec.push_back(argv[1]->f * scale);
+    vec.push_back(argv[2]->f * scale);
 
     busy = true;
     rc->infer(vec);
@@ -93,9 +85,6 @@ void data_handler(const char *path, const char *types, lo_arg **argv, int argc)
 
 void learn_handler(const char *path, const char *types, lo_arg **argv, int argc)
 {
-    while(busy)
-        wait_a_bit();
-
     busy = true;
     rc->learn();
     wasLearning = rc->size()-1;
@@ -105,9 +94,6 @@ void learn_handler(const char *path, const char *types, lo_arg **argv, int argc)
 
 void recognize_handler(const char *path, const char *types, lo_arg **argv, int argc)
 {
-    while(busy)
-        wait_a_bit();
-
     busy = true;
     rc->stopLearning();
     cout << "Stopped learning\n";
@@ -116,9 +102,6 @@ void recognize_handler(const char *path, const char *types, lo_arg **argv, int a
 
 void clear_handler(const char *path, const char *types, lo_arg **argv, int argc)
 {
-    while(busy)
-        wait_a_bit();
-
     busy = true;
     rc->clear();
     wasLearning = -1;
@@ -128,8 +111,6 @@ void clear_handler(const char *path, const char *types, lo_arg **argv, int argc)
 
 void threshold_handler(const char *path, const char *types, lo_arg **argv, int argc)
 {
-    while(busy)
-        wait_a_bit();
     busy = true;
     rc->setRecognitionThreshold((double)argv[0]->f);
     cout << "threshold set to: " << argv[0]->f << "\n";
@@ -201,6 +182,7 @@ int main(int argc, char** argv)
     std::atomic<int> received(0);
 
     rc = new RepClassifier();
+    rc->setResolution(4);
 
     st.add_method("/data","fff",data_handler);
     st.add_method("/learn","",learn_handler);

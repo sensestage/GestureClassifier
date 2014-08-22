@@ -46,7 +46,7 @@ void DtwPsClassifier::infer(std::vector<float>& newSample) {
 
         // compare buffer with each template
         for (int k = 0; k < templateBank.size(); k++) {
-            double d = templateBank[k].distance(buffer);
+            double d = templateBank[k].distance(buffer, resolution);
             double rotation = templateBank[k].getPhase();
             if (d < minVal) {
                 secondVal = minVal;
@@ -108,4 +108,12 @@ double DtwPsClassifier::getDistance() {
 
 int DtwPsClassifier::getDimensions() {
     return dimensions;
+}
+
+void DtwPsClassifier::setResolution(int r){
+    resolution = r;
+}
+
+Template DtwPsClassifier::getTemplate(int i){
+    return templateBank[i];
 }

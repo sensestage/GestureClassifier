@@ -11,7 +11,7 @@
 #include "Template.h"
 #include "AbstractGestureClassifier.h"
 
-#include "VectorDTW.h"
+#include "vectordtw.h"
 #include <deque>
 #include <float.h>
 
@@ -25,6 +25,8 @@ protected:
     int mostLikelyGest = -1;
     double phase = 0.;
     double distance = DBL_MAX;
+
+    int resolution = 20;
 
 public:
     DtwPsClassifier();
@@ -42,6 +44,9 @@ public:
     int size();
     double getDistance();
     int getDimensions();
+    Template getTemplate(int i);
+
+    void setResolution(int r);
 
 };
 
