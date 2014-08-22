@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   Template.cpp
  * Author: Bas
- * 
+ *
  * Created on 26 juni 2014, 17:21
  */
 
@@ -51,7 +51,7 @@ double Template::getPhase() {
 
 void Template::add(Point p) {
     templ.push_back(p);
-    dtw = new VectorDTW(templ.size(),1.);
+    dtw = new VectorDTW(templ.size(),10.);
 }
 
 void Template::clear() {

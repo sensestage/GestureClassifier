@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   RepClassifier.h
  * Author: Bas
  *
@@ -15,19 +15,20 @@
 
 
 class RepClassifier : public AbstractGestureClassifier {
-    
+
     YIN* yin;
     DtwPsClassifier* dtw;
-    
+
     int learning = -1;
-    double recognitionThreshold = 20.;
+    bool stayLearning = false;
+    double recognitionThreshold = 50.;
     bool recording = false;
-    
+
 public:
     RepClassifier();
     RepClassifier(const RepClassifier& orig);
     virtual ~RepClassifier();
-    
+
     // wrapped to DtwPs
     void infer(std::vector<float>&);
     void addTemplate();
@@ -39,18 +40,19 @@ public:
     int templateSize(int i);
     int size();
     double getDistance();
-    
+
     // wrapped YIN
     bool isSync();
     int repetitionInterval();
-    
+
     // RepeatClassifier
     void learn();
     void learn(int i);
+    void stopLearning();
     void setRecognitionThreshold(double r);
     bool isLearning();
-    
-    
+
+
 private:
 
 };

@@ -23,7 +23,7 @@ set( CMAKE_CXX_FLAGS "-std=c++0x" )
 ##########################################################################
 
 set(oscgestureclassifier_SRCS
-  OSCGestureClassifier.cpp
+  main.cpp
 )
 
 add_executable( OSCGestureClassifier ${oscgestureclassifier_SRCS} )

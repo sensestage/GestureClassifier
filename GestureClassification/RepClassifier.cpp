@@ -11,7 +11,7 @@
 #include "YIN.h"
 #include "YIN.cpp"
 
-#include <float.h>
+#include <Float.h>
 
 RepClassifier::RepClassifier()
 {
@@ -37,7 +37,6 @@ RepClassifier::~RepClassifier()
 
 void RepClassifier::infer(std::vector<float>& newSample)
 {
-
     if (newSample.size() != dtw->getDimensions())
         return;
 
@@ -91,7 +90,7 @@ void RepClassifier::clear()
 
 int RepClassifier::mostLikelyGesture()
 {
-    if (dtw->getDistance() < recognitionThreshold || yin->isSync())
+    if (dtw->getDistance() < recognitionThreshold && yin->isSync())
         return dtw->mostLikelyGesture();
     else
         return -1;
@@ -154,3 +153,8 @@ int RepClassifier::repetitionInterval()
     else
         return -1;
 }
+
+    void RepClassifier::stopLearning(){
+        learning = false;
+        stayLearning = false;
+    }

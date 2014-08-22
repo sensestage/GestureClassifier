@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   DtwPsClassifier.cpp
  * Author: Bas
- * 
+ *
  * Created on 26 juni 2014, 14:31
  */
 
@@ -57,7 +57,7 @@ void DtwPsClassifier::infer(std::vector<float>& newSample) {
                 secondVal = d;
             }
         }
-        mostLikeliGest = minIndex;
+        mostLikelyGest = minIndex;
         phase = minRot;
         distance = minVal;
     }
@@ -82,12 +82,12 @@ void DtwPsClassifier::clearTemplate(int i) {
 void DtwPsClassifier::clear() {
     templateBank.clear();
     phase = 0.;
-    mostLikeliGest = -1;
+    mostLikelyGest = -1;
     maxBufferSize = 1;
 }
 
 int DtwPsClassifier::mostLikelyGesture() {
-    return mostLikeliGest;
+    return mostLikelyGest;
 }
 
 double DtwPsClassifier::getPhase() {

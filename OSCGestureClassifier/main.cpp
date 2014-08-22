@@ -42,7 +42,7 @@ void data_handler(const char *path, const char *types, lo_arg **argv, int argc)
 
     busy = true;
     rc->infer(vec);
-    int g = rc->mostLikelyGesture();
+    int g = rc->mostLikeliGesture();
     if (g>=0)
     {
         if(!wasDetected)
@@ -52,7 +52,7 @@ void data_handler(const char *path, const char *types, lo_arg **argv, int argc)
         }
         a->send(lo::Bundle(
         {
-            {"/OSCGestureClassifier/index",lo::Message("i",rc->mostLikelyGesture())},
+            {"/OSCGestureClassifier/index",lo::Message("i",rc->mostLikeliGesture())},
             {"/OSCGestureClassifier/distance", lo::Message("f",rc->getDistance())},
             {"/OSCGestureClassifier/phase", lo::Message("f",rc->getPhase())}
         } ));
@@ -162,7 +162,7 @@ void help()
     std::cout << "/OSCGestureClassifier/repetition i \t1 or 0 whether repetition is detected\n";
     std::cout << "/OSCGestureClassifier/interval i \tlength of the detected repetition \n";
     std::cout << "/OSCGestureClassifier/detected i \t1 or 0 whether template is detected \n";
-    std::cout << "/OSCGestureClassifier/index\ i \t\tindex of detected template\n";
+    std::cout << "/OSCGestureClassifier/index i \t\tindex of detected template\n";
     std::cout << "/OSCGestureClassifier/distance f \tdistace from gesture to detected template\n";
     std::cout << "/OSCGestureClassifier/phase f \t\tcurrent phase of performed gesture\n";
     std::cout << "/OSCGestureClassifier/learned i \tsize of vocabulary\n";

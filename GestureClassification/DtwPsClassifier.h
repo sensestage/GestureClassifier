@@ -11,7 +11,7 @@
 #include "Template.h"
 #include "AbstractGestureClassifier.h"
 
-#include "vectordtw.h"
+#include "VectorDTW.h"
 #include <deque>
 #include <float.h>
 
@@ -22,7 +22,7 @@ protected:
 
     int maxBufferSize = 1;
     int dimensions = 3;
-    int mostLikeliGest = -1;
+    int mostLikelyGest = -1;
     double phase = 0.;
     double distance = DBL_MAX;
 
