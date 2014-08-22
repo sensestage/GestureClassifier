@@ -11,7 +11,7 @@
 #include "Template.h"
 #include "AbstractGestureClassifier.h"
 
-#include "VectorDTW.h"
+#include "vectordtw.h"
 #include <deque>
 #include <float.h>
 
