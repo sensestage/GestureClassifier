@@ -21,8 +21,6 @@
 #include <deque>
 #include <sstream>
 
-#include <assert.h>
-
 typedef double floattype;
 typedef unsigned int uint;
 using namespace std;
